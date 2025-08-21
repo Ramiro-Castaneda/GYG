@@ -1092,6 +1092,37 @@ img {
     z-index: 0;
     background-color: transparent;
   }
+  .home__img {
+    position: relative;
+    width: 110%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    transform: scaleX(-1);
+    filter: drop-shadow(0 0 80px rgba(4, 36, 217, 0.25));
+    mask-image: linear-gradient(
+      black, transparent 90%
+    )
+  }
+  .home__img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(4, 36, 217, 0.15) 0%,
+      rgba(4, 36, 217, 0.1) 30%,
+      rgba(4, 36, 217, 0.05) 60%,
+      transparent 80%
+    );
+    filter: blur(30px);
+    z-index: -1;
+    pointer-events: none;
+  }
   .home__data {
     padding-top: 0;
   }
@@ -1279,16 +1310,37 @@ img {
     padding-top: 2rem;
   }
   .home__img {
-    position: relative; /* Para poder colocar la imagen y el gradiente juntos */
+    position: relative;
     width: 130%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 50px;
+    transform: scaleX(-1); /* Reflejo horizontal */
+    filter: drop-shadow(0 0 100px rgba(4, 36, 217, 0.3));
     mask-image: linear-gradient(
       black, transparent 90%
     )
   }
+
+.home__img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(4, 36, 217, 0.25) 0%,
+      rgba(4, 36, 217, 0.15) 30%,
+      rgba(4, 36, 217, 0.05) 60%,
+      transparent 80%
+    );
+    filter: blur(40px);
+    z-index: -1;
+    pointer-events: none;
+}
   .img{
     position: relative;
     max-width: 100%;
@@ -1456,15 +1508,38 @@ img {
     background-color: transparent;
   }
   .home__img {
-    position: relative; /* Para poder colocar la imagen y el gradiente juntos */
+    position: relative;
     width: 130%;
     display: flex;
     justify-content: center;
     align-items: center;
     margin-left: 50px;
+    /*
+    transform: scaleX(-1);
+    filter: drop-shadow(0 0 120px rgba(4, 36, 217, 0.35));
+    */
     mask-image: linear-gradient(
-      black, transparent 95%
+      black, transparent 100%
     )
+  }
+  
+  .home__img::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      circle at center,
+      rgba(4, 36, 217, 0.3) 0%,
+      rgba(4, 36, 217, 0.2) 30%,
+      rgba(4, 36, 217, 0.1) 60%,
+      transparent 80%
+    );
+    filter: blur(50px);
+    z-index: -1;
+    pointer-events: none;
   }
   .home__data {
     padding-top: 0;
