@@ -1693,23 +1693,37 @@ img {
   transform: translate(-50%, -50%);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
   z-index: 1;
-  width: 250px; /* Tamaño más grande para imágenes de render sin fondo */
+  width: 250px;
+  transition: 
+    opacity 0.15s ease-out,
+    visibility 0s linear 0.15s,
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
 }
 
 .products__carousel .products__img.active {
   opacity: 1;
   visibility: visible;
-  z-index: 1;
+  z-index: 2;
   transform: translate(-50%, -50%);
+  transition: 
+    opacity 0.15s ease-in 0.1s,
+    visibility 0s linear 0.1s,
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: auto;
 }
 
 .products__carousel .products__carousel-img.active {
   opacity: 1;
   visibility: visible;
-  z-index: 1;
+  z-index: 2;
   transform: translate(-50%, -50%);
+  transition: 
+    opacity 0.15s ease-in 0.1s,
+    visibility 0s linear 0.1s,
+    transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: auto;
 }
 
 /* Flechas de navegación del carrusel */

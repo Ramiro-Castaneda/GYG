@@ -94,26 +94,33 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Función para mostrar una slide específica
         function showSlide(slideIndex) {
-            // Remover clase active de todas las imágenes e indicadores
-            images.forEach(img => {
-                img.classList.remove('active');
-            });
-            indicators.forEach(indicator => indicator.classList.remove('active'));
-            
             // Asegurar que el índice esté en rango
             if (slideIndex < 0) slideIndex = 0;
             if (slideIndex >= images.length) slideIndex = images.length - 1;
             
-            // Agregar clase active a la imagen e indicador actual
-            if (images[slideIndex]) {
-                images[slideIndex].classList.add('active');
-            }
-            if (indicators[slideIndex]) {
-                indicators[slideIndex].classList.add('active');
-            }
+            // Primero desactivar la imagen actual
+            images.forEach(img => {
+                if (img.classList.contains('active')) {
+                    img.classList.remove('active');
+                }
+            });
             
-            currentSlide = slideIndex;
-            updateArrowStates();
+            // Esperar a que termine la transición de salida
+            setTimeout(() => {
+                // Actualizar indicadores
+                indicators.forEach(indicator => indicator.classList.remove('active'));
+                
+                // Activar la nueva imagen
+                if (images[slideIndex]) {
+                    images[slideIndex].classList.add('active');
+                }
+                if (indicators[slideIndex]) {
+                    indicators[slideIndex].classList.add('active');
+                }
+                
+                currentSlide = slideIndex;
+                updateArrowStates();
+            }, 150); // Reducido a 150ms para coincidir con la nueva duración de la transición
         }
         
         // Función para actualizar el estado de las flechas
