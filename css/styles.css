@@ -500,17 +500,24 @@ img {
 
 .products__card {
   position: relative;
-  height: 300px; /* Altura base aumentada aún más */
+  height: 300px;
   background-color: var(--container-color);
-  padding: 1rem; /* Padding interno fijo para todos los elementos */
+  padding: 1rem;
   border-radius: .5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start; /* Cambio para mejor control del espaciado */
-  transition: all .4s ease;
+  justify-content: flex-start;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  box-sizing: border-box; /* Para que el padding no afecte el tamaño total */
+  box-sizing: border-box;
+  will-change: transform, height, box-shadow;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  perspective: 1000px;
 }
 
 .products__card:hover {
@@ -554,14 +561,18 @@ img {
 }
 
 .products__img {
-  width: 130px; /* Tamaño aumentado para las cajas más grandes */
+  width: 130px;
   height: auto;
-  position: absolute; /* Posicionamiento absoluto para centrar */
-  top: 35%; /* Mover más arriba para dar espacio al título */
-  left: 50%; /* Centrar horizontalmente */
-  transform: translate(-50%, -50%); /* Ajuste fino del centrado */
-  transition: all 0.4s ease;
-  z-index: 0; /* Z-index bajo para que esté detrás del gradiente */
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 0;
+  will-change: transform, opacity;
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
 }
 
 .products__content {
@@ -630,18 +641,23 @@ img {
   padding: 1rem;
   margin: 0;
   transform: translateY(100%);
-  transition: all .4s ease;
+  transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   border-radius: 0 0 .5rem .5rem;
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 30px rgba(4, 36, 217, 0.3);
   color: var(--white-color);
-  height: 90px; /* Altura aumentada para evitar desbordamiento */
+  height: 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-sizing: border-box; /* Para que el padding no afecte el tamaño */
-  z-index: 3; /* Por encima de las imágenes (z-index: 1) pero debajo de flechas (z-index: 5) */
+  box-sizing: border-box;
+  z-index: 3;
+  will-change: transform, opacity, backdrop-filter;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 .products__card:hover .products__description {
