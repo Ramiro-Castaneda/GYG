@@ -522,40 +522,18 @@ img {
 .products__card:hover {
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(4, 36, 217, 0.3);
+  background-color: var(--container-color);
 }
 
-.products__card::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  height: 100%;
-  width: 100%;
-  background-image:
-  linear-gradient(
-    to bottom,
-    transparent 10%,
-    rgba(0, 0, 0, 0.5) 30%,
-    rgba(0, 0, 0) 95%
-  );
-  opacity: 0;
-  transition: all .3s ease;
-  border-radius: 10px;
-}
-
-.products__card:hover::before {
-  opacity: 1;
-}
-
-.products__card:hover .products__img,
 .products__card:hover .products__title,
 .products__card:hover .products__logo {
-  opacity: 0; /* Oculta el logo al hacer hover */
+  opacity: 0; /* Oculta solo el título y logo al hacer hover */
   transition: opacity 0.3s ease;
 }
 
 .products__card:hover .products__img {
-  transform: translate(-50%, -50%) scale(1.2); /* Mantiene centrado y escala */
-  opacity: 1; /* Mantiene la imagen visible pero escalada */
+  transform: translate(-50%, -50%) scale(1.1); /* Escala ligeramente menor */
+  opacity: 0.8; /* Semi-transparente */
 }
 
 .products__img {
@@ -631,11 +609,7 @@ img {
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(135deg, 
-    rgba(4, 36, 217, 0.98) 0%, 
-    rgba(48, 48, 233, 0.95) 50%, 
-    rgba(92, 61, 250, 0.92) 100%
-  );
+  background: rgba(4, 36, 217, 0.98);
   padding: 1rem;
   margin: 0;
   transform: translateY(100%);
