@@ -500,7 +500,7 @@ img {
 
 .products__card {
   position: relative;
-  height: 300px;
+  height: 380px;
   background-color: var(--container-color);
   padding: 1rem;
   border-radius: .5rem;
@@ -509,11 +509,10 @@ img {
   align-items: center;
   justify-content: flex-start;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
-              height 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   box-sizing: border-box;
-  will-change: transform, height, box-shadow;
+  will-change: transform, box-shadow;
   transform-style: preserve-3d;
   backface-visibility: hidden;
   transform: translateZ(0);
@@ -521,7 +520,6 @@ img {
 }
 
 .products__card:hover {
-  height: 380px; /* Altura hover aumentada más */
   transform: translateY(-10px);
   box-shadow: 0 20px 40px rgba(4, 36, 217, 0.3);
 }
@@ -649,13 +647,14 @@ img {
   backdrop-filter: blur(12px);
   box-shadow: 0 4px 30px rgba(4, 36, 217, 0.3);
   color: var(--white-color);
-  height: 90px;
+  height: auto;
+  max-height: 130px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   box-sizing: border-box;
   z-index: 3;
-  will-change: transform, opacity, backdrop-filter;
+  will-change: transform, opacity;
   transform: translateZ(0);
   backface-visibility: hidden;
 }
